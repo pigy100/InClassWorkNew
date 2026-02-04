@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InClassWorkNew.Views.SignInWorkout"
+             xmlns:views="clr-namespace:InClassWorkNew.ViewModels"
+             x:DataType="views:SignInWorkoutViewModel"
+             Title="SignInWorkout"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+FlowDirection="RightToLeft">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="LightCyan"/>
+            <GradientStop Offset="0.5" Color="#3a7bd5"/>
+            <GradientStop Offset="1.0" Color="Purple"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <VerticalStackLayout
+Padding="30"
+Spacing="25"
+VerticalOptions="Center">
+
+        <Label
+FontAttributes="Bold"
+FontSize="25"
+VerticalOptions="Center"
+Text="Entry"
+TextColor="Snow"/>
+        <Border
+Padding="10"
+Stroke="#ccc"
+StrokeShape="RoundRectangle 8"
+StrokeThickness="1">
+            <Entry
+Text="{Binding UserName}"
+Keyboard="Email"
+FontSize="18"
+Placeholder="Email"
+TextColor="Wheat"
+ReturnType="Go">
+            </Entry>
+
+        </Border>
+        <Border
+Stroke="#ccc"
+StrokeShape="RoundRectangle 8"
+StrokeThickness="1">
+            <Grid
+Padding="10"
+ColumnDefinitions="*,Auto"
+VerticalOptions="Center">
+                <Entry
+
+Text="{Binding UserPassword}"
+BackgroundColor="Transparent"
+FontSize="18"
+IsPassword="{Binding IsPassword}"
+Placeholder="Password"
+TextColor="Wheat"
+VerticalOptions="Center"/>
+                <Button
+FontFamily="Icons"
+Margin="5,0,0,0"
+Padding="0"
+BackgroundColor="Transparent"
+FontSize="24"
+HorizontalOptions="End"
+Text="{Binding PasswordText}"
+TextColor="White"
+VerticalOptions="Center"
+                    Command="{Binding ShowPasswordCommand}"/>
+            </Grid>
+
+        </Border>
+        <Button
+CornerRadius="8"
+FontSize="18"
+HeightRequest="50"
+    Text="Enter"
+TextColor="MediumPurple"
+            Command="{Binding SignInCommand}"/>
+
+
+        <Label
+FontSize="45"
+HorizontalTextAlignment="Center"
+IsVisible="{Binding SignInMessageVisible}"
+Text="{Binding LoginMessage}"
+TextColor="{Binding SignInMessageColor}"/>
+        <HorizontalStackLayout
+HorizontalOptions="Center"
+VerticalOptions="Center">
+            <Button
+BackgroundColor="Transparent"
+FontSize="16"
+TextColor="Aquamarine"
+Text="SignUp"
+                Command="{Binding NavigateToSignUpCommand}"/>
+            <Label
+Margin="14,0,0,0"
+VerticalTextAlignment="Center"
+TextColor="White"
+Text="Don't have an account?"
+FontSize="16" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
