@@ -3,6 +3,7 @@ namespace InClassWorkNew
 {
     public partial class AppShell : Shell
     {
+        
 
         public AppShell()
         {

@@ -1,9 +1,11 @@
-﻿using InClassWorkNew.Views;
+﻿using InClassWorkNew.Models;
+using InClassWorkNew.Views;
 
 namespace InClassWorkNew
 {
     public partial class App : Application
     {
+        public AppUser? CurrentUser { get; set; }
         public App()
         {
             InitializeComponent();

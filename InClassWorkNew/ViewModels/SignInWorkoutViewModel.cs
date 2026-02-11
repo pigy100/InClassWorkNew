@@ -1,4 +1,5 @@
 ﻿using InClassWorkNew.Helper;
+using InClassWorkNew.Models;
 using InClassWorkNew.Service;
 
 using InClassWorkNew.ViewModels;
@@ -146,6 +147,8 @@ namespace InClassWorkNew.ViewModels
             SignInMessageVisible = true;
             if (_db.isExist(UserName, UserPassword))
             {
+                AppUser user = _db.GetUser(UserName)!;
+                (App.Current as App)!.CurrentUser = user;
                 Application.Current!.Windows[0].Page = new AppShell();
                 //Navigate to MainPage
             }

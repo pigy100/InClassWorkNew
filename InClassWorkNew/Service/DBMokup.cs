@@ -23,7 +23,12 @@ namespace InClassWorkNew.Service
         public void AddUser(AppUser newUser)
         {
             _users.Add(newUser);
+            
 
+        }
+        public AppUser? GetUser(string uEmail)
+        {
+            return _users.FirstOrDefault(u => u.UserEmail == uEmail);
         }
     }
 }

@@ -12,7 +12,7 @@ Title="InClassWorkNew">
      Route="MainPage" />
     -->
    
-    <FlyoutItem Title="Home" Icon="home.png">
+    <FlyoutItem>
         <ShellContent
             Icon="home.png"
 Title="Home"
