@@ -12,26 +12,31 @@ Title="InClassWorkNew">
      Route="MainPage" />
     -->
    
-    <FlyoutItem>
+    <TabBar>
         <ShellContent
             Icon="home.png"
 Title="Home"
 ContentTemplate="{DataTemplate local:MainPageView}"
 Route="MainPage" />
-
-            <ShellContent 
-                 Icon="admin.png"
-Title="AdminPage"
-ContentTemplate="{DataTemplate local:AdminPageView}"
-Route="AdminPage" />
-
-
-
-        <ShellContent  Icon="garden.png"
-Title="UsersList"
-ContentTemplate="{DataTemplate local:UsersListView}"
-Route="UsersList" />
-    </FlyoutItem>
+        <ShellContent
+    Icon="admin.png"
+    Title="AdminPage"
+    IsVisible ="{Binding IsAdminVisible}"
+    ContentTemplate="{DataTemplate local:AdminPageView}"
+    Route="AdminPage"/>
+        <ShellContent  Icon="clear_day.png"
+Title="Account"
+ContentTemplate="{DataTemplate local:AccountPageView}"
+Route="AccountPage" />
+        <ShellContent Title="Sign out">
+            <Button
+                ImageSource="garden.png"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="{Binding SignOutCommand}"
+                />
+        </ShellContent>
+    </TabBar>
 
     <!---
         <FlyoutItem Title="Home" Icon="home.png">

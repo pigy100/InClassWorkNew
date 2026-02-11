@@ -8,12 +8,11 @@
             Text="Welcome to Admin Page!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button 
-            Text="Admin"
-            Command="{Binding NavigateToAdminCommand}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            />
+        <Button
+    Text="Go to user list"
+    VerticalOptions="Center"
+    HorizontalOptions="Center"
+    Clicked="{Binding NavigateToUsersListCommand}"/>
 
 
     </VerticalStackLayout>

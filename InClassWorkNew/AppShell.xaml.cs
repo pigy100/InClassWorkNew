@@ -1,4 +1,6 @@
 ﻿
+using InClassWorkNew.Views;
+
 namespace InClassWorkNew
 {
     public partial class AppShell : Shell
@@ -9,6 +11,9 @@ namespace InClassWorkNew
         {
             InitializeComponent();
             BindingContext=new ViewModels.AppShellViewModel();
+
+            Routing.RegisterRoute(nameof(MainPageView), typeof(MainPageView));
+            Routing.RegisterRoute(nameof(AdminPageView), typeof(AdminPageView));
         }
     }
 }

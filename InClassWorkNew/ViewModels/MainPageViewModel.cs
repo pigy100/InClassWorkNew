@@ -10,11 +10,6 @@ namespace InClassWorkNew.ViewModels
 {
     public partial class MainPageViewModel : ObservableObject
     {
-        [RelayCommand]
-        private void NavigateToAdmin()
-        {
-
-        }
 
     }
 }

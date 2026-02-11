@@ -163,8 +163,17 @@ namespace InClassWorkNew.ViewModels
                 UserBDay = UserBDay,
                 UserMobile = UserMobile
             };
-            Dbmokup.AddUser(NewUser);
-            await Toast.Make($"New user Email: {NewUser.UserEmail}", ToastDuration.Short, 14).Show();
+            if (Dbmokup.GetUserByEmail(NewUser.UserEmail) != null)
+            {
+                await Toast.Make($"Email is already registered", ToastDuration.Short, 14).Show();
+                return;
+            }
+                Dbmokup.AddUser(NewUser);
+            OnPropertyChanged();
+            (App.Current as App)!.CurrentUser = NewUser;
+            Application.Current!.Windows[0].Page = new AppShell();
+
+
 
         }
     }

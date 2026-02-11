@@ -26,9 +26,9 @@ namespace InClassWorkNew.Service
             
 
         }
-        public AppUser? GetUser(string uEmail)
+        public AppUser? GetUserByEmail(string uEmail)
         {
-            return _users.FirstOrDefault(u => u.UserEmail == uEmail);
+            return _users.FirstOrDefault(u => u.UserEmail == uEmail, null);
         }
     }
 }
