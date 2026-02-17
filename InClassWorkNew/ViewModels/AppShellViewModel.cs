@@ -1,10 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using CommunityToolkit.Mvvm.Input;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using InClassWorkNew.Models;
 using InClassWorkNew.Views;
 
 namespace InClassWorkNew.ViewModels
@@ -13,20 +11,17 @@ namespace InClassWorkNew.ViewModels
     {
         [ObservableProperty]
         private bool _isAdminVisible;
+       
+
         public AppShellViewModel()
         {
-            if ((App.Current as App)!.CurrentUser.IsAdmin)
+            var app = App.Current as App;
+            if (app?.CurrentUser?.IsAdmin == true)
             {
                 IsAdminVisible = true;
             }
-        }
 
-        [RelayCommand]
-        public async void SignOut()
-        {
-            (App.Current as App)!.CurrentUser = null;
-            Application.Current.Windows[0].Page = new SignInWorkout();
-
+            
         }
     }
 }

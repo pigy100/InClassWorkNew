@@ -9,6 +9,7 @@ namespace InClassWorkNew
         public App()
         {
             InitializeComponent();
+            CurrentUser = new AppUser();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

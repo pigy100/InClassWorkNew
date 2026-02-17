@@ -171,7 +171,10 @@ namespace InClassWorkNew.ViewModels
                 Dbmokup.AddUser(NewUser);
             OnPropertyChanged();
             (App.Current as App)!.CurrentUser = NewUser;
-            Application.Current!.Windows[0].Page = new AppShell();
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Application.Current!.MainPage = new AppShell();
+            });
 
 
 

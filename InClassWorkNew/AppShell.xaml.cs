@@ -10,7 +10,7 @@ namespace InClassWorkNew
         public AppShell()
         {
             InitializeComponent();
-            BindingContext=new ViewModels.AppShellViewModel();
+            this.BindingContext=new ViewModels.AppShellViewModel();
 
             Routing.RegisterRoute(nameof(MainPageView), typeof(MainPageView));
             Routing.RegisterRoute(nameof(AdminPageView), typeof(AdminPageView));
