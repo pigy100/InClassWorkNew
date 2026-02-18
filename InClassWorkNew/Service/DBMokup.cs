@@ -30,5 +30,24 @@ namespace InClassWorkNew.Service
         {
             return _users.FirstOrDefault(u => u.UserEmail == uEmail, null);
         }
+        public void RemoveUser(AppUser user)
+        {
+            if (user != null && _users.Contains(user))
+            {
+                _users.Remove(user);
+            }
+        }
+        public void UpdateUser(AppUser user)
+        {
+            if (user != null && _users.Contains(user))
+            {
+                var index = _users.IndexOf(user);
+                if (index >= 0)
+                {
+                    _users[index] = user;
+                }
+            }
+        }
+        public List<AppUser> GetUsers() { return _users; }
     }
 }

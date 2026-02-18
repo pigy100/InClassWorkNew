@@ -5,7 +5,30 @@ xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 xmlns:local="clr-namespace:InClassWorkNew.Views"
 Title="InClassWorkNew">
-
+    <Shell.TitleView>
+        <HorizontalStackLayout>
+            <Button
+Margin="5"
+BackgroundColor="Wheat"
+Command="{Binding SignOutCommand}"
+FontSize="24"
+FontFamily="MaterialIcons"
+TextColor="Black"
+Text="&#xe9ba;"
+HorizontalOptions="Start"/>
+            <!--IsAdmin Option-->
+            <Button
+Margin="0,5,5,5"
+BackgroundColor="Wheat"
+FontSize="24"
+FontFamily="MaterialIcons"
+TextColor="Black"
+Text="&#xf02e;"
+HorizontalOptions="Start"
+IsVisible="{Binding IsAdminVisible}"
+                Command="{Binding NavigateToAdminPageCommand}"/>
+        </HorizontalStackLayout>
+    </Shell.TitleView>
     <TabBar>
         <ShellContent
             Icon="home.png"
@@ -30,7 +53,7 @@ Title="InClassWorkNew">
             Icon="garden.png"
             Title="Sign out"
             ContentTemplate="{DataTemplate local:SignOutView}"
-            Route="SignOutPage" />
+            Route="SignOut" />
     </TabBar>
 
 </Shell>

@@ -4,6 +4,7 @@ using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
 using InClassWorkNew.Models;
 using InClassWorkNew.Views;
+using System.Threading.Tasks;
 
 namespace InClassWorkNew.Views
 {
@@ -16,21 +17,11 @@ namespace InClassWorkNew.Views
             InitializeComponent();
             
         }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var app = App.Current as App;
-            if (app != null)
-            {
-                app.CurrentUser = new AppUser();
-            }
-
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Application.Current!.Quit();
-            });
-
+            (App.Current as App)!.CurrentUser = null;
+            Application.Current.Windows[0].Page = new NavigationPage(new SignInWorkout());
         }
     }
 }

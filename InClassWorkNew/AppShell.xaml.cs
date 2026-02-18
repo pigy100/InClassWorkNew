@@ -14,6 +14,8 @@ namespace InClassWorkNew
 
             Routing.RegisterRoute(nameof(MainPageView), typeof(MainPageView));
             Routing.RegisterRoute(nameof(AdminPageView), typeof(AdminPageView));
+            Routing.RegisterRoute(nameof(SignOutView), typeof(SignOutView));
+            Routing.RegisterRoute(nameof(UsersListView), typeof(UsersListView));
         }
     }
 }

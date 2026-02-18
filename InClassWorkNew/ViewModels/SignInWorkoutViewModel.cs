@@ -149,10 +149,7 @@ namespace InClassWorkNew.ViewModels
             {
                 AppUser user = _db.GetUserByEmail(UserName)!;
                 (App.Current as App)!.CurrentUser = user;
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    Application.Current!.MainPage = new AppShell();
-                });
+                Application.Current!.Windows[0].Page = new AppShell();
                 //Navigate to MainPage
             }
             else

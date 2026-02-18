@@ -12,6 +12,7 @@
     Text="Go to user list"
     VerticalOptions="Center"
     HorizontalOptions="Center"
+            Command="{Binding NavigateToUsersListCommand}"
     />
 
 

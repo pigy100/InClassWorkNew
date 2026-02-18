@@ -11,7 +11,7 @@ namespace InClassWorkNew.ViewModels
     public partial class AdminPageViewModel : ObservableObject
     {
         [RelayCommand]
-        public async void NavigateToUsersList()
+        public async Task NavigateToUsersList()
         {
             await Shell.Current.GoToAsync(nameof(Views.UsersListView));
         }

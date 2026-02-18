@@ -60,7 +60,7 @@ Placeholder="Password"
 TextColor="Wheat"
 VerticalOptions="Center"/>
                 <Button
-FontFamily="Icons"
+FontFamily="MaterialIcons"
 Margin="5,0,0,0"
 Padding="0"
 BackgroundColor="Transparent"
