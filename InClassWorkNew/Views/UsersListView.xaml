@@ -39,11 +39,95 @@ Text="{Binding UsersFilterButtonText}"/>
         </Grid>
 
         <!-- Users Collection-->
+        <!-- Users Collection-->
         <CollectionView
 Grid.Row="2"
-SelectionMode="None">
+SelectionMode="None"
+ItemsSource="{Binding AllUsers}">
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate x:DataType="models:AppUser">
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+
+                            <!--ICONS-->
+                            <SwipeItem Text="view" 
+                                       
+                            Command="{Binding Path=NavigateToAccountPageCommand,
+Source={x:RelativeSource AncestorType={x:Type viewmodels:UsersListViewModel}},
+
+x:DataType='viewmodels:UsersListViewModel'}"
+CommandParameter="{Binding .}"
+                                       IconImageSource="account.png"/>
 
 
+                                <SwipeItem Text="delete"
+
+Command="{Binding BindingContext.DeleteUserCommand,
+Source={x:Reference UsersCollection}}"
+
+CommandParameter="{Binding .}">
+                                    <!--ICONS-->
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource>
+                                            <FontImageSource.FontFamily>MaterialSymbols1</FontImageSource.FontFamily>
+                                            <FontImageSource.Glyph>&#xe872;</FontImageSource.Glyph>
+                                        </FontImageSource>
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+                            </SwipeView.LeftItems>
+                            <Border
+Margin="15,7"
+Padding="15"
+Background="White"
+Stroke="LightGray"
+StrokeShape="RoundRectangle 10">
+                        <Grid
+ColumnDefinitions="*,Auto"
+RowDefinitions="Auto, Auto"
+RowSpacing="5">
+                            <HorizontalStackLayout>
+                                <!--User First Name-->
+                                <Label
+FontAttributes="Bold"
+FontSize="16"
+Text="{Binding FirstName}"
+VerticalOptions="Center"/>
+                                <!--User Last Name-->
+                                <Label
+Margin="5,0,0,0"
+FontAttributes="Bold"
+FontSize="16"
+Text="{Binding LastName}"
+VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <!--User Email-->
+                            <Label
+Grid.Row="1"
+FontSize="13"
+Text="{Binding UserEmail}"
+TextColor="Gray"
+VerticalOptions="Center"/>
+                            <!--Registration Date-->
+                            <Border
+Grid.RowSpan="2"
+Grid.Column="1"
+Padding="10,5"
+BackgroundColor="{AppThemeBinding Light=LightGray,Dark=#333333}"
+StrokeShape="RoundRectangle 15"
+VerticalOptions="Center">
+                                <Label
+FontAttributes="Bold"
+FontSize="12"
+Text="{Binding RegDate, StringFormat='{0:dd/MM/yyyy}'}"
+VerticalOptions="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    </SwipeView>
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
             <CollectionView.EmptyView>
                 <StackLayout
 Padding="20"
@@ -64,5 +148,7 @@ Margin="0,0,0,100"/>
                 </StackLayout>
                 </CollectionView.EmptyView>
         </CollectionView>
+        <!-- Users Collection-->
+
     </Grid>
 </ContentPage>

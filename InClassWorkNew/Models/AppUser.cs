@@ -15,7 +15,7 @@ namespace InClassWorkNew.Models
         public string? UserPassword { get; set; }
         public string? UserMobile { get; set; }
         public string? UserBDay { get; set; }
-        public string? RegDate { get; set; }
+        public string? RegDate { get; set; } //= DateTime.Now.ToShortDateString();
         public bool IsAdmin { get; set; }
     }
 }

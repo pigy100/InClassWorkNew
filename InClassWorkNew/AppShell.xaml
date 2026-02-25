@@ -29,6 +29,9 @@ IsVisible="{Binding IsAdminVisible}"
                 Command="{Binding NavigateToAdminPageCommand}"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
+    <FlyoutItem>
+        
+    </FlyoutItem>
     <TabBar>
         <ShellContent
             Icon="home.png"

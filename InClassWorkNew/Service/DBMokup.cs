@@ -14,7 +14,7 @@ namespace InClassWorkNew.Service
         {
             _users.Add(new AppUser { UserEmail = "admin@mail.com", UserPassword = "admin" , IsAdmin=true});
             _users.Add(new AppUser { UserEmail = "user1@mail.com", UserPassword = "pass1", IsAdmin = false });
-            _users.Add(new AppUser { UserEmail = "user2@mail.com", UserPassword = "pass2", IsAdmin = false });
+            _users.Add(new AppUser { UserEmail = "user2@mail.com", UserPassword = "pass2", IsAdmin = false , RegDate=DateTime.Now.ToShortDateString()});
         }
         public bool isExist(string uEmail, string uPass)
         {
@@ -23,8 +23,6 @@ namespace InClassWorkNew.Service
         public void AddUser(AppUser newUser)
         {
             _users.Add(newUser);
-            
-
         }
         public AppUser? GetUserByEmail(string uEmail)
         {
